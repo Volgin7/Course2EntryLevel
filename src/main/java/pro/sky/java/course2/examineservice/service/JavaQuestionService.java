@@ -10,6 +10,10 @@ public class JavaQuestionService implements QuestionService {
 
     private final List<Question> questionsList;
 
+    public List<Question> getQuestionsList() {
+        return questionsList;
+    }
+
     public JavaQuestionService() {
         this.questionsList = new ArrayList<>();
     }
@@ -43,6 +47,9 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-        return null;
+        Random random = new Random();
+        int i = random.nextInt(questionsList.size());
+        Question randomQuestion = new Question(questionsList.get(i).getQuestion(), questionsList.get(i).getAnswer());
+        return randomQuestion;
     }
 }

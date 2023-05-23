@@ -8,7 +8,6 @@ import pro.sky.java.course2.examineservice.model.Question;
 import pro.sky.java.course2.examineservice.service.JavaQuestionService;
 
 import java.util.Collection;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/exam/java")
@@ -28,7 +27,6 @@ public class JavaController {
     public Question removeQuestion(@RequestParam String question, @RequestParam String answer) {
         return serviceJQ.remove(question, answer);
     }
-
     @GetMapping
     public Collection<Question> getAll() {
         return serviceJQ.getAll();
