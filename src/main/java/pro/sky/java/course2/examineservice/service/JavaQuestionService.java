@@ -22,7 +22,6 @@ public class JavaQuestionService implements QuestionService {
     public Question add(String question, String answer) {
         Question newQuestion  = new Question(question,answer);
         if(questionsList.contains(newQuestion)) {
-            System.out.println("Contains => null");
             return null;
         }
         questionsList.add(newQuestion);
@@ -33,7 +32,6 @@ public class JavaQuestionService implements QuestionService {
     public Question remove(String question, String answer) {
         Question questionToRemove = new Question(question, answer);
         if (!questionsList.contains(questionToRemove)) {
-            System.out.println("NotFound => null");
             return null;
         }
         questionsList.remove(questionToRemove);
