@@ -9,14 +9,14 @@ import java.util.*;
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
 
-    private final JavaQuestionService serviceJQ;
-    public ExaminerServiceImpl(JavaQuestionService serviceJQ) {this.serviceJQ = serviceJQ;}
+    private final JavaQuestionsServiceImpl serviceJQ;
+    public ExaminerServiceImpl(JavaQuestionsServiceImpl serviceJQ) {this.serviceJQ = serviceJQ;}
 
     @Override
     public List getQuestions(int amount) {
         Set<Question> questions = new HashSet<>();
         if(amount>serviceJQ.getQuestionsList().size()) {
-            throw new NotEnoughQuestionsException();
+            throw new NotEnoughQuestionsException("Not Enough Questions");
         }
         while (questions.size() < amount) {
             questions.add(serviceJQ.getRandomQuestion());

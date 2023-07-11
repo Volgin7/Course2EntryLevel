@@ -5,16 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.java.course2.examineservice.model.Question;
-import pro.sky.java.course2.examineservice.service.JavaQuestionService;
+import pro.sky.java.course2.examineservice.service.JavaQuestionsServiceImpl;
 
 import java.util.Collection;
 
 @RestController
 @RequestMapping("/exam/java")
 public class JavaController {
-    private final JavaQuestionService serviceJQ;
+    private final JavaQuestionsServiceImpl serviceJQ;
 
-    public JavaController(JavaQuestionService serviceJQ) {
+    public JavaController(JavaQuestionsServiceImpl serviceJQ) {
         this.serviceJQ = serviceJQ;
     }
 

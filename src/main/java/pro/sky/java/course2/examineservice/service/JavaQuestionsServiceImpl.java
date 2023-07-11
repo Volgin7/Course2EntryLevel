@@ -6,7 +6,7 @@ import pro.sky.java.course2.examineservice.model.Question;
 import java.util.*;
 
 @Service
-public class JavaQuestionService implements QuestionService {
+public class JavaQuestionsServiceImpl implements JavaQuestionsService {
 
     private final List<Question> questionsList;
 
@@ -14,7 +14,7 @@ public class JavaQuestionService implements QuestionService {
         return questionsList;
     }
 
-    public JavaQuestionService() {
+    public JavaQuestionsServiceImpl() {
         this.questionsList = new ArrayList<>();
     }
 
@@ -46,6 +46,9 @@ public class JavaQuestionService implements QuestionService {
     @Override
     public Question getRandomQuestion() {
         Random random = new Random();
+        if(questionsList.size() == 0) {
+            return null;
+        }
         int i = random.nextInt(questionsList.size());
         Question randomQuestion = new Question(questionsList.get(i).getQuestion(), questionsList.get(i).getAnswer());
         return randomQuestion;

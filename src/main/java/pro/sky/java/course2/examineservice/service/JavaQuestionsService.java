@@ -4,7 +4,7 @@ import pro.sky.java.course2.examineservice.model.Question;
 
 import java.util.Collection;
 
-public interface QuestionService {
+public interface JavaQuestionsService {
 
     Question add(String question, String answer);
     Question remove(String question, String answer);
