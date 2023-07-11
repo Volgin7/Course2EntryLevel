@@ -6,11 +6,15 @@ import pro.sky.java.course2.examineservice.model.Question;
 import java.util.*;
 
 @Service
-public class JavaQuestionService implements QuestionService {
+public class JavaQuestionsServiceImpl implements JavaQuestionsService {
 
     private final List<Question> questionsList;
 
-    public JavaQuestionService() {
+    public List<Question> getQuestionsList() {
+        return questionsList;
+    }
+
+    public JavaQuestionsServiceImpl() {
         this.questionsList = new ArrayList<>();
     }
 
@@ -18,7 +22,6 @@ public class JavaQuestionService implements QuestionService {
     public Question add(String question, String answer) {
         Question newQuestion  = new Question(question,answer);
         if(questionsList.contains(newQuestion)) {
-            System.out.println("Contains => null");
             return null;
         }
         questionsList.add(newQuestion);
@@ -29,7 +32,6 @@ public class JavaQuestionService implements QuestionService {
     public Question remove(String question, String answer) {
         Question questionToRemove = new Question(question, answer);
         if (!questionsList.contains(questionToRemove)) {
-            System.out.println("NotFound => null");
             return null;
         }
         questionsList.remove(questionToRemove);
@@ -43,6 +45,12 @@ public class JavaQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-        return null;
+        Random random = new Random();
+        if(questionsList.size() == 0) {
+            return null;
+        }
+        int i = random.nextInt(questionsList.size());
+        Question randomQuestion = new Question(questionsList.get(i).getQuestion(), questionsList.get(i).getAnswer());
+        return randomQuestion;
     }
 }

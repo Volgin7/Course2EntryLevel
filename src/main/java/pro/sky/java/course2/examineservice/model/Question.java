@@ -23,7 +23,8 @@ public class Question {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Question question1)) return false;
-        return getQuestion().equals(question1.getQuestion()) && getAnswer().equals(question1.getAnswer());
+   //     return getQuestion().equals(question1.getQuestion()) && getAnswer().equals(question1.getAnswer());
+        return getQuestion().equals(question1.getQuestion()); // if questions are equal => objects are equal
     }
 
     @Override
