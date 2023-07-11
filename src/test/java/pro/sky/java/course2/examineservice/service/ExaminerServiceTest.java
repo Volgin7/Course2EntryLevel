@@ -56,7 +56,6 @@ public class ExaminerServiceTest {
         String expected = javaQuestionsList.get(0).toString();
         String actual = examService.getQuestions(1).get(0).toString();
         Assertions.assertEquals(actual,expected);
-        System.out.println(actual + expected);
     }
 
 }
